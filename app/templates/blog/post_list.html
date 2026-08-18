@@ -5,22 +5,39 @@
     <title>My Blog</title>
 </head>
 <body>
-    <h1>My Blog</h1>
+    <header>
+        <h1>My Blog</h1>
 
-    {% for post in posts %}
-        <article>
-            <h2>
-                <a href="{% url 'post_detail' post.pk %}">
-                    {{ post.title }}
-                </a>
-            </h2>
+        {% if user.is_authenticated %}
+            <p>Logged in as {{ user.username }}</p>
 
-            <small>{{ post.created_at }}</small>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            |
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </header>
 
-            <p>{{ post.content|truncatewords:30 }}</p>
-        </article>
-    {% empty %}
-        <p>No posts yet.</p>
-    {% endfor %}
+    <main>
+        {% for post in posts %}
+            <article>
+                <h2>
+                    <a href="{% url 'post_detail' post.pk %}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+
+                <small>{{ post.created_at }}</small>
+
+                <p>{{ post.content|truncatewords:30 }}</p>
+            </article>
+        {% empty %}
+            <p>No posts yet.</p>
+        {% endfor %}
+    </main>
 </body>
 </html>

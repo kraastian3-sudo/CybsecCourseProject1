@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Where user is sent after login
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/" # Same but for logout
 
 # Application definition
 
