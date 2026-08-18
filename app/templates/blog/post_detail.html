@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }} - My Blog</title>
+</head>
+<body>
+    <a href="{% url 'post_list' %}">← Back to blog</a>
+
+    <article>
+        <h1>{{ post.title }}</h1>
+
+        <small>{{ post.created_at }}</small>
+
+        <p>{{ post.content }}</p>
+    </article>
+</body>
+</html>
