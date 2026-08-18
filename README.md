@@ -1,6 +1,6 @@
 # Django Blog
 
-A simple blog application built with Django. This is the first version, no vulnerabilities yet. Next work on adding log in and the ability for logged in users to create posts.
+A simple blog application built with Django. Add more features next and maybe update the visuals.
 
 ## Installation
 
