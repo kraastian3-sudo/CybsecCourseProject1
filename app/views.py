@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 from .models import Post
-from .forms import RegisterForm
+from .forms import RegisterForm, PostForm
 
 def post_list(request):
     posts = Post.objects.all().order_by("-created_time")
@@ -25,3 +26,18 @@ def register(request):
         form = RegisterForm
 
     return render(request, "registration/register.html", {"form": form})
+
+@login_required
+def create_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect("post_detail", pk=post.pk)
+    else:
+        form = PostForm()
+
+    return render(request, "blog/post_form.html", {"form": form})

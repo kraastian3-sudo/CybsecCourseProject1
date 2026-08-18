@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Write a Post - My Blog</title>
+</head>
+<body>
+    <header>
+        <h1>Write a Post</h1>
+
+        <a href="{% url 'post_list' %}">Back to blog</a>
+    </header>
+
+    <main>
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Publish</button>
+        </form>
+    </main>
+</body>
+</html>
