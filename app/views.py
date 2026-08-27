@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 from .models import Post
-from .forms import RegisterForm, PostForm
+from .forms import RegisterForm, PostForm, CommentForm
 
 def post_list(request):
     posts = Post.objects.all().order_by("-created_time")
@@ -12,7 +12,25 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, "blog/post_detail.html", {"post": post})
+
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect("login")
+
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+
+            return redirect("post_detail", pk=post.pk)
+
+    else:
+        form = CommentForm()
+
+    return render(request, "blog/post_detail.html", {"post": post, "form": form})
 
 def register(request):
     if request.method == "POST":

@@ -32,11 +32,10 @@
                         {{ post.title }}
                     </a>
                 </h2>
-
                 <small>{{ post.created_at }}</small>
 
                 <p>{{ post.content|truncatewords:30 }}</p>
-            </article>
+            </article>        
         {% empty %}
             <p>No posts yet.</p>
         {% endfor %}

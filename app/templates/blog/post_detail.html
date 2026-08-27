@@ -10,9 +10,45 @@
     <article>
         <h1>{{ post.title }}</h1>
 
-        <small>{{ post.created_at }}</small>
+        <small>{{ post.created_time }}</small>
 
         <p>{{ post.content }}</p>
+
+        <hr>
+
+        <section>
+            <h3>Comments</h3>
+
+            {% for comment in post.comments.all %}
+                <article>
+                    <p>{{ comment.content }}</p>
+
+                    <small>
+                        By {{ comment.author.username }}
+                        at {{ comment.created_time }}
+                    </small>
+                </article>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+
+            {% if user.is_authenticated %}
+                <h3>Add a comment</h3>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button type="submit">Add comment</button>
+                </form>
+            {% else %}
+                <p>
+                    <a href="{% url 'login' %}">Login</a>
+                    to add a comment.
+                </p>
+            {% endif %}
+        </section>
     </article>
 </body>
 </html>
