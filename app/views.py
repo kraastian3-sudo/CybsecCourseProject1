@@ -59,3 +59,42 @@ def create_post(request):
         form = PostForm()
 
     return render(request, "blog/post_form.html", {"form": form})
+
+# --------------------------------------------------
+# INTENTIONALLY VULNERABLE LOGIN VIEW
+# --------------------------------------------------
+
+# from django.contrib.auth import login
+# from .forms import UnsafeLoginForm
+#
+# def unsafe_login(request):
+#     if request.method == "POST":
+#         form = UnsafeLoginForm(request.POST)
+#
+#         if form.is_valid():
+#             username = form.cleaned_data["username"]
+#             password = form.cleaned_data["password"]
+#
+#             user = authenticate(
+#                 request,
+#                 username=username,
+#                 password=password
+#             )
+#
+#             if user is not None:
+#                 login(request, user,
+#                       backend="blog.backends.UnsafeAuthBackend")
+#                 return redirect("post_list")
+#
+#             form.add_error(
+#                 None,
+#                 "Invalid username or password."
+#             )
+#     else:
+#         form = UnsafeLoginForm()
+#
+#     return render(
+#         request,
+#         "registration/login.html",
+#         {"form": form}
+#     )

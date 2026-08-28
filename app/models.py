@@ -32,3 +32,46 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author} on {self.post}"
+
+# class Unsafe_user(models.Model):
+#     username = models.TextField(unique=True)
+#     password = models.TextField()
+#
+#     @property
+#     def is_authenticated(self):
+#         return True
+#
+#     @property
+#     def is_anonymous(self):
+#         return False
+#
+#     def __str__(self):
+#         return self.username
+#
+# class UnsafePost(models.Model):
+#     author = models.ForeignKey(
+#         Unsafe_user,
+#         on_delete=models.CASCADE,
+#         related_name="unsafe_posts"
+#     )
+#     title = models.CharField(max_length=100)
+#     content = models.TextField()
+#     created_time = models.DateTimeField(
+#         auto_now_add=True
+#     )
+#
+# class UnsafeComment(models.Model):
+#     post = models.ForeignKey(
+#         UnsafePost,
+#         on_delete=models.CASCADE,
+#         related_name="unsafe_comments"
+#     )
+#     author = models.ForeignKey(
+#         Unsafe_user,
+#         on_delete=models.CASCADE,
+#         related_name="unsafe_comments"
+#     )
+#     content = models.TextField()
+#     created_time = models.DateTimeField(
+#         auto_now_add=True
+#     )
