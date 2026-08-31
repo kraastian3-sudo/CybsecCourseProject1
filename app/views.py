@@ -37,7 +37,7 @@ def register(request):
 
             if authenticated_user is not None: # Comment this out
                 login(request, authenticated_user, backend="app.backends.UnsafeAuthBackend") # Comment this out
-                return redirect("unsafe_post_list") # Comment this out
+                return redirect("post_list") # Comment this out
 
     else:
         form = UnsafeRegisterForm() # Comment this out
