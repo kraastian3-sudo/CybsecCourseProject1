@@ -36,7 +36,7 @@ AUTHENTICATION_BACKENDS = ["app.backends.UnsafeAuthBackend",]
 
 
 # SAFE VERSION:
-# DEBUG = True
+# DEBUG = False
 # ALLOWED_HOSTS = []
 # AUTHENTICATION_BACKENDS = [
 #     "axes.backends.AxesStandaloneBackend",
