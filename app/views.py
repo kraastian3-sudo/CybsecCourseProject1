@@ -48,9 +48,6 @@ def register(request):
     return render(request, "registration/register.html", {"form": form})
 
 # A07: The login uses plaintext passwords through UnsafeAuthBackend.
-# A09: Failed login attempts are deliberately NOT logged.
-# FIX: Use Django's normal authentication system and appropriate security logging/monitoring for failed authentication events.
-
 # FIX: Comment this whole function out along with unsafe logout. A ready made login() exists within django.
 def unsafe_login(request):
     if request.method == "POST":

@@ -51,6 +51,8 @@ LOGOUT_REDIRECT_URL = "/" # Same but for logout
 
 # Application definition
 
+# A09: Failed login attempts are deliberately NOT logged.
+# FIX: Use a library like axes security logging/monitoring for failed authentication events.
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
