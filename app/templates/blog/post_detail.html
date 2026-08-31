@@ -18,8 +18,6 @@
 
         <section>
             <h3>Comments</h3>
-<!-- 
-            Uncomment this and comment the next block when applying the safe changes
             {% for comment in post.comments.all %}
                 <article>
                     <p>{{ comment.content }}</p>
@@ -31,9 +29,9 @@
                 </article>
             {% empty %}
                 <p>No comments yet.</p>
-            {% endfor %} -->
+            {% endfor %}
 
-            {% for comment in post.unsafe_comments.all %}
+            <!-- {% for comment in post.unsafe_comments.all %}
                 <article>
                     <p>{{ comment.content }}</p>
 
@@ -44,7 +42,7 @@
                 </article>
             {% empty %}
                 <p>No comments yet.</p>
-            {% endfor %}
+            {% endfor %} -->
 
 
             {% if user.is_authenticated %}
