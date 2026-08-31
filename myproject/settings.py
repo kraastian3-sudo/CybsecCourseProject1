@@ -22,10 +22,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-d6icfsgiv@$)n#ig$3v!rp+q9oxwe2dtv#z&61u%y=riqsik&f"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# A02:2025 - SECURITY MISCONFIGURATION
+# DEBUG is enabled in the vulnerable application. This exposes unnecessary configuration information to an attacker.
+# FIX:
+# DEBUG should be set to False in a production environment.
+# Comment the lines from under this until the safe version
 
-ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = ["*"]
+
+# Applying the unsafe backend
+AUTHENTICATION_BACKENDS = ["app.backends.UnsafeAuthBackend",]
+
+
+# SAFE VERSION:
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 # Where user is sent after login
 LOGIN_REDIRECT_URL = "/"

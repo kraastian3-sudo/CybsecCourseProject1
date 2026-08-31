@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search - My Blog</title>
+</head>
+<body>
+
+<header>
+    <h1>Search My Blog</h1>
+
+    <a href="{% url 'post_list' %}">Back to blog</a>
+</header>
+
+<main>
+
+    <form method="get" action="{% url 'search' %}">
+        <input
+            type="text"
+            name="q"
+            value="{{ query }}"
+            placeholder="Search posts..."
+        >
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    {% if query %}
+        <h2>Search results for "{{ query }}"</h2>
+    {% endif %}
+
+    {% for post in posts %}
+
+        <article>
+            <h2>
+                <a href="{% url 'post_detail' post.pk %}">
+                    {{ post.title }}
+                </a>
+            </h2>
+
+            <p>{{ post.content|truncatewords:30 }}</p>
+
+            <small>
+                {{ post.created_time }}
+            </small>
+        </article>
+
+        <hr>
+
+    {% empty %}
+
+        {% if query %}
+            <p>No posts found.</p>
+        {% else %}
+            <p>Enter something to search for.</p>
+        {% endif %}
+
+    {% endfor %}
+
+</main>
+
+</body>
+</html>
+```

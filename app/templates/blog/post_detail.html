@@ -32,6 +32,20 @@
                 <p>No comments yet.</p>
             {% endfor %}
 
+            {% for comment in post.unsafe_comments.all %}
+                <article>
+                    <p>{{ comment.content }}</p>
+
+                    <small>
+                        By {{ comment.author.username }}
+                        at {{ comment.created_time }}
+                    </small>
+                </article>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+
+
             {% if user.is_authenticated %}
                 <h3>Add a comment</h3>
 
