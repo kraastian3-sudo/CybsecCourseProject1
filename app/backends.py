@@ -8,22 +8,22 @@
 # Comment or delete everything in this file
 # Remember to change settings.py also
 
-# from .models import Unsafeuser
+from .models import Unsafeuser
 
 
-# class UnsafeAuthBackend:
+class UnsafeAuthBackend:
 
-#     def authenticate(self, request, username=None, password=None):
-#         try:
-#             return Unsafeuser.objects.get(
-#                 username=username,
-#                 password=password
-#             )
-#         except Unsafeuser.DoesNotExist:
-#             return None
+    def authenticate(self, request, username=None, password=None):
+        try:
+            return Unsafeuser.objects.get(
+                username=username,
+                password=password
+            )
+        except Unsafeuser.DoesNotExist:
+            return None
 
-#     def get_user(self, user_id):
-#         try:
-#             return Unsafeuser.objects.get(pk=user_id)
-#         except Unsafeuser.DoesNotExist:
-#             return None
+    def get_user(self, user_id):
+        try:
+            return Unsafeuser.objects.get(pk=user_id)
+        except Unsafeuser.DoesNotExist:
+            return None

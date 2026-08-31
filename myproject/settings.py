@@ -28,22 +28,23 @@ SECRET_KEY = "django-insecure-d6icfsgiv@$)n#ig$3v!rp+q9oxwe2dtv#z&61u%y=riqsik&f
 # DEBUG should be set to False in a production environment.
 # Comment the lines from under this until the safe version
 
-# DEBUG = True
-# ALLOWED_HOSTS = ["*"]
+DEBUG = True
+ALLOWED_HOSTS = ["*"]
 
 # Applying the unsafe backend
-# AUTHENTICATION_BACKENDS = ["app.backends.UnsafeAuthBackend",]
+AUTHENTICATION_BACKENDS = ["app.backends.UnsafeAuthBackend",]
 
 
 # SAFE VERSION:
-DEBUG = True
-ALLOWED_HOSTS = []
-AUTHENTICATION_BACKENDS = [
-    "axes.backends.AxesStandaloneBackend",
-    "django.contrib.auth.backends.ModelBackend",
-]
-AXES_FAILURE_LIMIT = 5
-AXES_COOLOFF_TIME = 24
+# DEBUG = True
+# ALLOWED_HOSTS = []
+# AUTHENTICATION_BACKENDS = [
+#     "axes.backends.AxesStandaloneBackend",
+#     "django.contrib.auth.backends.ModelBackend",
+# ]
+# AXES_FAILURE_LIMIT = 5
+# AXES_COOLOFF_TIME = 24
+
 # Where user is sent after login
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/" # Same but for logout
@@ -58,7 +59,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "app",
-    "axes"
+# FIX:
+#    "axes"
 ]
 
 MIDDLEWARE = [
@@ -69,7 +71,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "axes.middleware.AxesMiddleware",
+# FIX:
+#     "axes.middleware.AxesMiddleware",
 ]
 
 ROOT_URLCONF = "myproject.urls"

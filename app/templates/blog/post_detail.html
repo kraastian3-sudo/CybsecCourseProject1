@@ -18,20 +18,8 @@
 
         <section>
             <h3>Comments</h3>
-            {% for comment in post.comments.all %}
-                <article>
-                    <p>{{ comment.content }}</p>
-
-                    <small>
-                        By {{ comment.author.username }}
-                        at {{ comment.created_time }}
-                    </small>
-                </article>
-            {% empty %}
-                <p>No comments yet.</p>
-            {% endfor %}
-
-            <!-- {% for comment in post.unsafe_comments.all %}
+            <!-- Uncomment this and comment the next for block out -->
+            <!-- {% for comment in post.comments.all %}
                 <article>
                     <p>{{ comment.content }}</p>
 
@@ -43,6 +31,19 @@
             {% empty %}
                 <p>No comments yet.</p>
             {% endfor %} -->
+
+            {% for comment in post.unsafe_comments.all %}
+                <article>
+                    <p>{{ comment.content }}</p>
+
+                    <small>
+                        By {{ comment.author.username }}
+                        at {{ comment.created_time }}
+                    </small>
+                </article>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
 
 
             {% if user.is_authenticated %}
