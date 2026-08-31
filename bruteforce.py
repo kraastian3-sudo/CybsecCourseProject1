@@ -1,12 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 
-username = "kristian"  # Change this
+username = "user"  # Change this
 login_url = "http://127.0.0.1:8000/accounts/login/"
 common_patterns = [
         "1234", "0000", "1111", "2222", "3333", "4444", "5555", 
         "6666", "7777", "8888", "9999", "4321", "5678", "6789",
-        "1212", "1122", "1230", "2020", "1999", "2000", "1984"
+        "1212", "1122", "1230", "2020", "1999", "2000", "1984", "normalpassword"
 ]
 
 session = requests.Session()
