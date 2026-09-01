@@ -2,6 +2,8 @@
 
 ## Installation
 
+This project was made with the https://owasp.org/Top10/2025/ list.
+
 Clone the repository:
 
     git clone <repository-url>
