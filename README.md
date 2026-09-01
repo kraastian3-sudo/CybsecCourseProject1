@@ -72,7 +72,8 @@ Open your code editor and open the bruteforce.py file.
 Enter the name of the first account you made.
 open a new terminal and setup the venv environment and run bruteforce py.
 
-<img width="946" height="86" alt="image" src="https://github.com/user-attachments/assets/9f4b40e2-7442-4026-b02e-3611e967bb95" />
+<img width="877" height="518" alt="image" src="https://github.com/user-attachments/assets/0e13bd4f-5567-461c-a8e5-455ef93e8ca0" />
+
 
 You should be able to see the guessed password.
 This is the A09:2025 Security Logging & Alerting Failures vulnerability. The app doesn't log or prevent failed attempts in any way.
@@ -85,9 +86,6 @@ We should get all accounts and their plaintext passwords as search results.
 This fulfills two vulnerabilities. # A05:2025 - INJECTION and # A07:2025 - AUTHENTICATION FAILURES.
 We were able to inject our sql command into the search bar and expose non hashed plaintext passwords from the database. 
 We also could drop tables, edit information and do many other malicious actions with this injection vulnerability.
-
-<img width="877" height="518" alt="image" src="https://github.com/user-attachments/assets/b47aeaf6-5a1a-46a8-ac60-4af4ab51d9c8" />
-
 
 Now you can apply the fixes that appear commented in the code and attempt these vulnerabilities again.
 Changes to apply exist in the following files.
