@@ -86,6 +86,9 @@ This fulfills two vulnerabilities. # A05:2025 - INJECTION and # A07:2025 - AUTHE
 We were able to inject our sql command into the search bar and expose non hashed plaintext passwords from the database. 
 We also could drop tables, edit information and do many other malicious actions with this injection vulnerability.
 
+<img width="877" height="518" alt="image" src="https://github.com/user-attachments/assets/b47aeaf6-5a1a-46a8-ac60-4af4ab51d9c8" />
+
+
 Now you can apply the fixes that appear commented in the code and attempt these vulnerabilities again.
 Changes to apply exist in the following files.
 
