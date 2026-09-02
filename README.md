@@ -2,6 +2,8 @@
 
 ## Installation
 
+This project was made with the https://owasp.org/Top10/2025/ list.
+
 Clone the repository:
 
     git clone <repository-url>
@@ -70,7 +72,8 @@ Open your code editor and open the bruteforce.py file.
 Enter the name of the first account you made.
 open a new terminal and setup the venv environment and run bruteforce py.
 
-<img width="946" height="86" alt="image" src="https://github.com/user-attachments/assets/9f4b40e2-7442-4026-b02e-3611e967bb95" />
+<img width="877" height="518" alt="image" src="https://github.com/user-attachments/assets/0e13bd4f-5567-461c-a8e5-455ef93e8ca0" />
+
 
 You should be able to see the guessed password.
 This is the A09:2025 Security Logging & Alerting Failures vulnerability. The app doesn't log or prevent failed attempts in any way.
