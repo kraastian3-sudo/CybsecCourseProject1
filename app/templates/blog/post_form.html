@@ -13,7 +13,8 @@
 
     <main>
         <form method="post">
-            {% csrf_token %}
+            <!-- csrf vulnerability -->
+            <!-- {% csrf_token %} -->
 
             {{ form.as_p }}
 

