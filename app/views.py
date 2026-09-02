@@ -119,6 +119,7 @@ def post_detail(request, pk):
     return render(request, "blog/post_detail.html", {"post": post, "form": form})
 
 # FIX: Change UnsafePostForm to postForm 
+# FIX: Comment the csrf exemption decorator
 @csrf_exempt
 @login_required
 def create_post(request):
