@@ -149,8 +149,6 @@ def delete_post(request, pk):
         UnsafePost, # FIX: Change this to Post
         pk=pk
     )
-
-
     # FIX:
     # Here the author is verified. Enable the code below.
     # if post.author != request.user:
